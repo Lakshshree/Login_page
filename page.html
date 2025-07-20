@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    span{
+        color:rgba(228, 223, 223, 0.523);
+        font-size: smaller;
+    }
+    #btn{
+        color:black;
+        background-color: rgba(240, 248, 255, 0.571);
+        border-radius: 15px;
+        width:100px;
+        margin-left: 50px;
+        font-size: 15px;
+    }
+    #btn:hover{
+        background-color: rgba(240, 248, 255, 0.159);
+        color:rgba(255, 255, 255, 0.667)
+    }
+    #image{
+        width:150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .back{
+        width: 100vw;
+        height:100vh;
+        filter: brightness(30%);
+        position:absolute;
+    }
+    .frame1{
+        display:flex;
+        background-color: rgba(245, 240, 245, 0.126);
+        margin-left: 400px;
+        width:300px;
+        height:500px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        position: absolute;
+        top:150px;
+    }
+    .frame2{
+        position:absolute;
+        background-color: rgba(253, 253, 253, 0.141);
+        margin:50px;
+        margin-left: 800px;
+        top:150px;
+        width:310px;
+        height:360px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;  
+    }
+    .frame2 h1{
+        margin:10px;
+        text-align: center;
+        font-size: large;
+        color:white;
+    }
+    .frame2 img{
+        margin:5px;
+        margin-left: 80px; 
+    }
+    .frame1 label{
+        color:rgb(31, 36, 41);
+        font-size: large;
+        font-weight: bold;
+    }
+    .frame1 input{
+        outline:none;
+        border:none;
+        height:25px;
+        border-radius: 5px;
+        width:200px;
+        background-color: rgba(0, 0, 0, 0.189);
+        color:aliceblue;
+        margin-top:10px;
+    }
+    .frame1 input::placeholder{
+       
+        padding:10px;
+    }
+    .frame1 h1{
+        margin:5px;
+        margin-left: 50px;
+        color:rgb(142, 145, 152)
+    }
+
+</style>
+<body>
+    <div class="frame">
+        <img src="Calm-Wallpaper-for-Desktop.jpg" class="back">
+        <div class="frame1">
+        <form onsubmit=" return submitform()">
+            <h1>Login</h1>
+            <label for="na">Name</label><br>
+            <input type="text" id="na" placeholder="Enter Name"><br>
+            <span id="a1"></span><br>
+            <label for="img">Profile Photo</label><br>
+            <input type="text" id="img" placeholder="Enter image url"><br>
+            <label for="ma">Email</label><br>
+            <input type="email" id="ma" placeholder="Enter mail"><br>
+            <span id="a2"></span><br>
+            <label for="pa">password</label><br>
+            <input type="text" id="pa" placeholder="Enter password"><br>
+            <span id="a3"></span><br>
+            <input type="submit" id="btn" onclick="return logic()" >
+
+        </form>
+        </div>
+    
+        <div class="frame2">
+            <br><br>
+            <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" id="image"><br>
+            <h1 id="h1">Name</h1><br>
+            <h1 id="h2">Email</h2><br>
+         
+            
+        </div>
+    </div>
+    <script>
+        function submitform(){
+            
+            let Name=document.getElementById('na').value;
+            let Password=document.getElementById('pa').value;
+            let Email=document.getElementById('ma').value;
+
+            if(Name==""){
+                document.getElementById('a1').innerHTML="Name is required!";
+                return false;
+            }else{
+                document.getElementById('a1').innerHTML="";
+            }
+            if(Email==""){
+                document.getElementById('a2').innerHTML="Email is required !";
+                return false;
+            }else{
+                document.getElementById('a2').innerHTML="";
+            }
+            if(Password==""){
+                document.getElementById('a3').innerHTML="Password is required !";
+                return false;
+            }else{
+                document.getElementById('a3').innerHTML="";
+            }
+            return false; 
+
+           
+        }
+        function logic(){
+            let Name=document.getElementById('na').value;
+            let Email=document.getElementById('ma').value;
+            let image=document.getElementById('img').value;
+
+            if(Name!== ""){
+            document.getElementById('h1').innerHTML=Name;
+            }else{
+                document.getElementById('h1').value;
+            }
+            if(image!== ""){
+            document.getElementById('image').src=image;
+            }else{
+                document.getElementById('image').value;
+            }
+            if(Email!== ""){
+            document.getElementById('h2').innerHTML=Email;
+            }else{
+                document.getElementById('h2').value;
+            }
+            return;
+        }
+    </script> 
+</body>
+</html>
